@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="CSS/s.css">
+</head>
+<body>
+<section class="intro">
+  <div class="container123">
+    <h1>F.D.N.S. Timeline &darr;</h1>
+  </div>
+</section>
+<a href="#_" class="lightbox" id="img1">
+  <img src="Img/1.jpeg">
+</a>
+
+<a href="#_" class="lightbox" id="img2">
+  <img src="Img/2.jpg">
+</a>
+<a href="#_" class="lightbox" id="img3">
+  <img src="Img/3.jpg">
+</a>
+<a href="#_" class="lightbox" id="img4">
+  <img src="Img/4.jpg">
+</a>
+<a href="#_" class="lightbox" id="img5">
+  <img src="Img/5.jpg">
+</a>
+<a href="#_" class="lightbox" id="img6">
+  <img src="Img/6.png">
+</a>
+<section class="timeline">
+  <ul>
+       <li>
+      <div>
+        <time>10 Aug 2017</time>  <a href="#img1" class="pp">Selections for all cluns started . Everyone started applying for clubs .</a>
+      </div>
+    </li>
+    <li>
+      <div>
+        <time>10 Aug 2017</time>  <a href="#img2" class="pp">Selections for all cluns started . Everyone started applying for clubs .</a>
+      </div>
+    </li>
+    <li>
+      <div>
+        <time>10 Aug 2017</time>  <a href="#img3" class="pp">Selections for all cluns started . Everyone started applying for clubs .</a>
+      </div>
+    </li>
+    <li>
+      <div>
+        <time>10 Aug 2017</time> <a href="#img4" class="pp">Selections for all cluns started . Everyone started applying for clubs .</a>      </div>
+    </li>
+    <li>
+      <div>
+        <time>10 Aug 2017</time>  <a href="#img5" class="pp">Selections for all cluns started . Everyone started applying for clubs .</a>
+      </div>
+    </li>
+    <li>
+      <div>
+        <time>10 Aug 2017</time>  <a href="#img6" class="pp">Selections for all cluns started . Everyone started applying for clubs .</a>
+      </div>
+    </li>
+    <li>
+      <div>
+        <time>10 Aug 2017</time>  <a href="#img1" class="pp">Selections for all cluns started . Everyone started applying for clubs .</a>
+      </div>
+    </li>
+    <li>
+      <div>
+        <time>10 Aug 2017</time><a href="#img1" class="pp">Selections for all cluns started . Everyone started applying for clubs .</a>      </div>
+    </li>
+    <li>
+      <div>
+        <time>10 Aug 2017</time> <a href="#img1" class="pp">Selections for all cluns started . Everyone started applying for clubs .</a>
+      </div>
+    </li>
+    
+  </ul>
+</section>
+
+<!-- JavaScript -->
+<script type="text/javascript" >
+	(function() {
+
+  'use strict';
+
+  // define variables
+  var items = document.querySelectorAll(".timeline li");
+
+  // check if an element is in viewport
+  // http://stackoverflow.com/questions/123999/how-to-tell-if-a-dom-element-is-visible-in-the-current-viewport
+  function isElementInViewport(el) {
+    var rect = el.getBoundingClientRect();
+    return (
+      rect.top >= 0 &&
+      rect.left >= 0 &&
+      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+  }
+
+  function callbackFunc() {
+    for (var i = 0; i < items.length; i++) {
+      if (isElementInViewport(items[i])) {
+        items[i].classList.add("in-view");
+      }
+    }
+  }
+
+  // listen for events
+  window.addEventListener("load", callbackFunc);
+  window.addEventListener("resize", callbackFunc);
+  window.addEventListener("scroll", callbackFunc);
+
+})();
+</script>
+</body>
+</html>
