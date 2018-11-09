@@ -40,6 +40,22 @@ color: #FFF;
 .h1 small {
 font-size: 24px;
 }
+.float{
+  position:fixed;
+  width:60px;
+  height:60px;
+  bottom:40px;
+  right:40px;
+  background-color:#0C9;
+  color:#FFF;
+  border-radius:50px;
+  text-align:center;
+  box-shadow: 2px 2px 3px #999;
+}
+
+.my-float{
+  margin-top:22px;
+}
     </style>
 </head>
 <body>
@@ -327,5 +343,9 @@ font-size: 24px;
 	</form>
 
 </div></div></div></div>
+
+<a href="main.php" class="float">
+<i class="fa fa-plus my-float text-white" style="text-decoration: none;">Main page</i>
+</a>
 </body>
 </html>

@@ -17,6 +17,25 @@
   <title>NITK MESS MANAGEMENT</title>
   
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <style type="text/css">
+      
+.float{
+  position:fixed;
+  width:60px;
+  height:60px;
+  bottom:40px;
+  right:40px;
+  background-color:#0C9;
+  color:#FFF;
+  border-radius:50px;
+  text-align:center;
+  box-shadow: 2px 2px 3px #999;
+}
+
+.my-float{
+  margin-top:22px;
+}
+    </style>
 </head>
 <body>
 
@@ -54,6 +73,11 @@
   <?php if($var == 0) { ?>
     <h1 align="center"> NO DATA </h1>
   <?php } ?>
+
+  
+<a href="main.php" class="float">
+<i class="fa fa-plus my-float text-white" style="text-decoration: none;">Main page</i>
+</a>
 </body>
 </html>
 

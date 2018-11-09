@@ -24,6 +24,22 @@ form {
   margin-left: 40%;
   margin-right: 40%;
 }
+.float{
+  position:fixed;
+  width:60px;
+  height:60px;
+  bottom:40px;
+  right:40px;
+  background-color:#0C9;
+  color:#FFF;
+  border-radius:50px;
+  text-align:center;
+  box-shadow: 2px 2px 3px #999;
+}
+
+.my-float{
+  margin-top:22px;
+}
     </style>
 </head>
 
@@ -44,6 +60,9 @@ form {
     <br><h1 align="center"><?php echo $me; ?></h1><br>
   </div>
 
+<a href="main.php" class="float">
+<i class="fa fa-plus my-float text-white" style="text-decoration: none;">Main page</i>
+</a>
     <?php
   }else {
 
@@ -123,6 +142,10 @@ $result = mysqli_query($db,$query);
 </form></div></div></div>
   
 	</form>
+  
+<a href="main.php" class="float">
+<i class="fa fa-plus my-float text-white" style="text-decoration: none;">Main page</i>
+</a>
 </body>
 </html>
 <?php } ?>

@@ -74,52 +74,7 @@ if(isset($_POST['messcount'])){
 
 ?>
 
-<?php 
-
-if(isset($_POST['MenuUpdate'])){
-
-  $mess = mysqli_real_escape_string($db,$_POST['MessMenu']);
-$_SESSION['MESS'] = $mess;
-$query = "select * from $mess";
-$result = mysqli_query($db,$query);
-?>
-
-<form method="post" action="updatemenu.php">
-
-<table style="width:100%">
-  <tr><th></th><th></th><th><?php echo $mess ?></th><th></th><th></th></tr>
-  <tr>
-    <th>DAY</th>
-    <th>BREAKFAST</th>
-    <th>LUNCH</th>
-    <th>DINNER</th>
-    
-  </tr>
 <?php
-
-    $var = 1; 
-    while($row = mysqli_fetch_assoc($result)){
-      ?>
-
-      <tr>
-        <th><?php echo $row['day']; ?></th>
-        <th><input type="text" name="<?php echo $var ?>" value="<?php echo $row['breakfast']; ?>"  >  </th>
-        <th><input type="text" name="<?php echo $var+1 ?>" value="<?php echo $row['lunch']; ?>" >  </th>
-        <th><input type="text" name="<?php echo $var+2 ?>" value="<?php echo $row['dinner']; ?>" >  </th>
-        <th>
-
-      </tr>    
-      <?php 
-      $var = $var + 3;
-    }
-?>
-</table> 
-<button type="submit" class="btn" name="UpdateFunction">Update</button>
-</form>
-
-      
-<?php }
-
 if(isset($_POST['UpdateFunction'])){
 
     $var = 1; 

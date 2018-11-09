@@ -40,6 +40,22 @@ form {
 margin: 0 auto; 
 width:	50%;
 }
+.float{
+  position:fixed;
+  width:60px;
+  height:60px;
+  bottom:40px;
+  right:40px;
+  background-color:#0C9;
+  color:#FFF;
+  border-radius:50px;
+  text-align:center;
+  box-shadow: 2px 2px 3px #999;
+}
+
+.my-float{
+  margin-top:22px;
+}
 
 @media screen and (max-width: 767px) {
   table caption {
@@ -218,5 +234,9 @@ $result = mysqli_query($db,$query);
 
 ?>
 </body>
+
+<a href="main.php" class="float">
+<i class="fa fa-plus my-float text-white" style="text-decoration: none;">Main page</i>
+</a>
 </html>
 

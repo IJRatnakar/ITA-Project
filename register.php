@@ -11,7 +11,6 @@
 <!------ Include the above in your HEAD tag ---------->
 <style type="text/css">
 body#LoginForm{ background-image:url("https://hdwallsource.com/img/2014/9/blur-26347-27038-hd-wallpapers.jpg"); background-repeat:no-repeat; background-position:center; background-size:cover; padding:10px;}
-
 .form-heading { color:#fff; font-size:23px;}
 .panel h2{ color:#444444; font-size:18px; margin:0 0 8px 0;}
 .panel p { color:#777777; font-size:14px; margin-bottom:30px; line-height:24px;}
@@ -30,7 +29,6 @@ body#LoginForm{ background-image:url("https://hdwallsource.com/img/2014/9/blur-2
   max-width: 38%;
   padding: 50px 70px 70px 71px;
 }
-
 .login-form .form-group {
   margin-bottom:10px;
 }
@@ -63,7 +61,6 @@ body#LoginForm{ background-image:url("https://hdwallsource.com/img/2014/9/blur-2
 }
 .back { text-align: left; margin-top:10px;}
 .back a {color: #444444; font-size: 13px;text-decoration: none;}
-
 </style>
 
 </head>
@@ -114,13 +111,3 @@ body#LoginForm{ background-image:url("https://hdwallsource.com/img/2014/9/blur-2
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-  
