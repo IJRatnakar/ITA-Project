@@ -8,7 +8,7 @@ $complaint="";
 $errors = array(); 
 
 // connect to the database
-$db = mysqli_connect('localhost', 'root', '', 'XPROXMESS');
+$db = mysqli_connect('185.27.134.10', 'root', '', 'epiz_22970911_xproxmess');
 
 // REGISTER USER
 if (isset($_POST['reg_user'])) {
