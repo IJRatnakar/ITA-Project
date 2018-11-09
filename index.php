@@ -60,7 +60,7 @@ New version with support for IE: https://codepen.io/robbue/pen/tnLmH/
 </div> -->
 <script>
         var timer = setTimeout(function() {
-            window.location='main.html'
+            window.location='main.php'
         }, 4000);
 
     </script>
