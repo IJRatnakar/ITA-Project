@@ -172,43 +172,10 @@ if(isset($_POST['apply_mess'])){
 }
 }
 
-if(isset($_POST['Menu'])){
-  $mess = mysqli_real_escape_string($db,$_POST['MessMenu']);
-
-$query = "select * from $mess";
-$result = mysqli_query($db,$query);
-?>  
-<table style="width:100%">
-    <tr><th></th><th></th><th><?php echo $mess ?></th><th></th><th></th></tr>
-
-  <tr>
-    <th>DAY</th>
-    <th>BREAKFAST</th>
-    <th>LUNCH</th>
-    <th>DINNER</th>
-    
-  </tr>
-
-  <?php 
-    while($row = mysqli_fetch_assoc($result)){
-      ?>
-
-      <tr>
-        <th> <?php echo $row['day']; ?> </th>
-        <th> <?php echo $row['breakfast']; ?> </th>
-        <th> <?php echo $row['lunch']; ?> </th>
-        <th> <?php echo $row['dinner']; ?> </th>
-      </tr>
-
-      <?php 
-    }
 ?>
 
-</table> 
 
 
 <?php 
-}
-
 
 ?>

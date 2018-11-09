@@ -1,6 +1,6 @@
-<?php include('server.php') ?>
 
-<?php 
+
+<?php include('server.php'); 
  if (!isset($_SESSION['username'])) {
     $_SESSION['msg'] = "You must log in first";
     header('location: login.php');
@@ -9,14 +9,52 @@
 {
   $username=$_SESSION['username'];
 }
-?>
-
-<!DOCTYPE html>
+?><!DOCTYPE html>
 <html lang="en">
   <head>
   <title>NITK MESS MANAGEMENT</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="CSS/style.css">
+    <link rel="stylesheet" type="text/css" href="CSS/s.css">
+    <link rel="stylesheet" type="text/css" href="CSS/sss.css">
+<style type="text/css">
+	h2 {
+  text-align: center;
+}
+
+table caption {
+	padding: .5em 0;
+}
+
+.p{
+  text-align: center;
+  padding-top: 140px;
+  font-size: 14px;
+}
+form { 
+margin: 0 auto; 
+width:	50%;
+}
+
+@media screen and (max-width: 767px) {
+  table caption {
+    border-bottom: 1px solid #ddd;
+  }
+  
+form { 
+margin: 0 auto; 
+width:	100%;
+}
+</style>
+
 </head>
-<body>
+<body class="bg-inverse">
+
 
 <?php
 
@@ -27,6 +65,7 @@
 
 ?>
 
+
 <?php
 
 $query = "select distinct(tag) from night_canteen_veg";
@@ -36,27 +75,36 @@ $result = mysqli_query($db,$query);
 	$varr = 0;
 ?>
 
-<h1> VEG </h1>
-<form method="post" action="nightcanteen.php">
-<table>
+<form method="post" action="nightcanteen.php" align="center">
+
+<br>
+
+<div class="container ">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="table-responsive">
+        <table summary="This table shows how to create responsive tables using Bootstrap's default functionality" class="table table-bordered table-hover" align="center">
+          <caption class="text-center">Order from Veg Night Canteen </caption>
+          <thead>
 <?php
 
     while($row = mysqli_fetch_assoc($result)){
 
     	$tagg = $row['tag'];
     	?>
-    	<tr><th></th><th><?php echo $tagg; ?></th><th></th></tr>
+    	<tr class="p-3 mb-2 bg-danger text-white"><th></th><th><?php echo $tagg; ?></th><th></th><th></th></tr>
     	<?php
     	$query2 = "select * from night_canteen_veg where tag = '$tagg'";
     	$result1 = mysqli_query($db,$query2);
       ?>
 
-	<tr>
+	<tr class="p-3 mb-2 bg-warning text-dark">
 		<th>FOOD ITEM</th>
 		<th>PRICE</th>
 		<th>AVAILABLE</th>
+		<th>QUANTITY</th>
 	</tr>
-
+</thead>
 	<?php 
 	while($row1 = mysqli_fetch_assoc($result1)) { ?>
 
@@ -68,12 +116,11 @@ $result = mysqli_query($db,$query);
 			array_push($vegquantity,0);
 			
 			?>
-      <tr>
+      <tr class="p-3 mb-2 bg-primary text-white">
         <th><?php echo $row1['Food']; ?></th>
         <th><?php echo $row1['price']; ?></th>
         <th><?php echo $row1['availability']; ?></th>
         <th><input type="text" name="<?php echo $varr;  $varr = $varr+1; ?>" value="0" >  </th>
-        <th>
         
       </tr>    
       <?php 
@@ -82,32 +129,37 @@ $result = mysqli_query($db,$query);
 }
 ?>
 </table>
-
+</div></div></div></div>
 <?php 
 	$query1 = "select distinct(tag) from night_canteen_nonveg";
 	$result1 = mysqli_query($db,$query1);
 ?>
-
-<h1> NON VEG </h1>
-
-<table>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="table-responsive">
+        <table summary="This table shows how to create responsive tables using Bootstrap's default functionality" class="table table-bordered table-hover">
+          <caption class="text-center">Order from Non Veg Night Canteen </caption>
+          <thead>
 <?php
-
     while($row = mysqli_fetch_assoc($result1)){
 
     	$tagg = $row['tag'];
     	?>
-    	<tr><th></th><th><?php echo $tagg; ?></th><th></th></tr>
+    	<tr class="p-3 mb-2 bg-danger text-white"><th></th><th><?php echo $tagg; ?></th><th></th><th></th></tr>
     	<?php
     	$query2 = "select * from night_canteen_nonveg where tag = '$tagg'";
     	$result2 = mysqli_query($db,$query2);
       ?>
 
-	<tr>
+	<tr class="p-3 mb-2 bg-warning text-dark">
 		<th>FOOD ITEM</th>
 		<th>PRICE</th>
 		<th>AVAILABLE</th>
+		<th>QUANTITY</th>
 	</tr>
+</thead>
 
 	<?php while($row1 = mysqli_fetch_assoc($result2)) { ?>
 	<?php if( $row1['availability'] == 1){ 
@@ -118,11 +170,11 @@ $result = mysqli_query($db,$query);
 			array_push($vegquantity,0);
 		?>
    
-      <tr>
+      <tr class="p-3 mb-2 bg-primary text-white">
         <th><?php echo $row1['Food']; ?></th>
         <th><?php echo $row1['price']; ?></th>
         <th><?php echo $row1['availability']; ?></th>
-        <th><input type="text" name="<?php echo $varr; ?>" value="0" >  
+        <th><input type="text" name="<?php echo $varr; ?>" value="0" > </th> 
         	<?php
           $varr = $varr+1;
           ?>
@@ -132,11 +184,9 @@ $result = mysqli_query($db,$query);
 }
 }
 ?>
-</table>
-<button type="submit" class="btn" name="ADDTOCART">ADD TO CART</button> 
+</table></div></div></div>
+<button type="submit" class="btn bg-primary pull-right text-white" name="ADDTOCART">ADD TO CART</button> 
 </form>
-</body>
-</html>
 
 
 <?php 
@@ -167,3 +217,6 @@ $result = mysqli_query($db,$query);
 	}
 
 ?>
+</body>
+</html>
+

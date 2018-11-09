@@ -10,25 +10,50 @@
 {
   $rollno=$_SESSION['username'];
 }
-  
-  $query = "Select * from mess_allot where roll_no = '$rollno'";
-
-  $result = mysqli_query($db,$query);
-  if(mysqli_num_rows($result) != 0){
-  	$_SESSION['chosen'] = 1;
-  	header('location: main.php');
-  }
-
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Mess Allotment Application</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+  <title>Mess Allotment Application</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <style type="text/css">
+        
+form {
+  margin-left: 40%;
+  margin-right: 40%;
+}
+    </style>
 </head>
+
+<?php  
+  $query = "Select mess from mess_allot where roll_no = '$rollno'";
+
+  $result = mysqli_query($db,$query);
+  $res = mysqli_fetch_assoc($result);
+  if(mysqli_num_rows($result) != 0){
+    $me = $res['mess'];
+    ?>
+
+<div style="background: #cc99ff;" class="text-white"> 
+    <br><h1 align="center">MESS ALLOTED</h1><br>
+  </div>
+
+<div style="background: pink;" class="text-white"> 
+    <br><h1 align="center"><?php echo $me; ?></h1><br>
+  </div>
+
+    <?php
+  }else {
+
+?>
+
 <body>
-	<div class="header">
-		<h2>MESS ALLOTMENT</h2>
+	<div class="header bg-primary text-white">
+    <br>
+		<h2 align="center">MESS ALLOTMENT</h2>
+    <br>
 	</div>
 
 
@@ -36,11 +61,11 @@
 $query = "select * from mess_count";
 $result = mysqli_query($db,$query);
 ?>	
-<table style="width:100%">
+<table style="width:100%" class="table">
   
   <tr>
-    <th>MESS</th>
-    <th>COUNT</th>
+    <th class="bg-success">MESS</th>
+    <th class="bg-success">CARD AVAILABLE</th>
   </tr>
 
   <?php 
@@ -49,8 +74,8 @@ $result = mysqli_query($db,$query);
 
   		<tr>
   			
-  			<th> <?php echo $row['mess']; ?> </th>
-  			<th> <?php echo $row['left_count']; ?> </th>
+  			<th class="bg-danger"> <?php echo $row['mess']; ?> </th>
+  			<th class="bg-warning"> <?php echo $row['left_count']; ?> </th>
 
   		</tr>
 
@@ -59,22 +84,26 @@ $result = mysqli_query($db,$query);
 ?>
 
 </table> 
-
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="well well-sm">
+<div style="background: #cc99ff;"> 
 
 	<form method="post" action="mess_allot.php">
 		<?php include('login_errors.php'); ?>
-		
+		<br>
 	    
 		<div class = "input-group">
-			<label>Roll No</label>
-			<?php echo $rollno;?> 
+			<label class="form-control"><?php echo $rollno;?> </label>	
 		</div>
 
 
 			<div class="input-group">
 
-				<p>
- 			<label>Choose mess</label>
+
+                        <div class="form-group">
+ 			<label >Choose mess</label>
 			<select name="formMessAllotCategory">
  				 <option value="">Select...</option>
   				 <option value="1st Block">1st Block</option>
@@ -83,16 +112,17 @@ $result = mysqli_query($db,$query);
  				 <option value="Mega Mess">Mega Mess</option> 
 
 			</select>
-				</p>
 			</div>
-
-
+    </div>
 
   		<div class="input-group">
   			<button type="submit" class="btn" name="apply_mess">Apply</button>
   		</div>
 
+<br>
+</form></div></div></div>
   
 	</form>
 </body>
 </html>
+<?php } ?>
