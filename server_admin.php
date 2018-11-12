@@ -6,7 +6,7 @@ $username = "";
 $errors = array(); 
 
 // connect to the database
-$db = mysqli_connect('185.27.134.10', 'root', '', 'epiz_22970911_xproxmess');
+$db = mysqli_connect('localhost', 'root', '', 'XPROXMESS');
 
 if (isset($_POST['login_user'])) {
 

@@ -402,8 +402,32 @@
     </div>
     <div class="col-sm ml-3 mr-3 mt-3 cliente1 pull-md-4">
       
-      <h1 class="text-warning">NEWS</h1>
-      <p class=""> Change in menu this week.</p>
+      <h1 class="text-warning"><?php if(isset($_SESSION['username'])){
+        echo "AMOUNT";
+      }else {
+        echo "MESS";
+      } ?></h1>
+      <p class=""><?php 
+
+      if(isset($_SESSION['username'])){
+        $user = $_SESSION['username'];
+        $query = "select price from students where roll_no = '$user'";
+        $result = mysqli_query($db,$query);
+        $res = mysqli_fetch_assoc($result);
+
+        echo $res['price'];
+      }else {
+        ?>
+
+          <a href="mess1.php">1st Block Mess</a><br>
+          <a href="mess2.php">2nd Block Mess</a><br>
+          <a href="mess3.php">5th Block Mess</a><br>
+          <a href="mess4.php">Mega Mess</a><br>          
+
+        <?php
+      }
+
+      ?></p>
           </div>
     <div class="col-sm ml-3 mr-3 mt-3 cliente2">
       

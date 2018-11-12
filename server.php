@@ -8,7 +8,7 @@ $complaint="";
 $errors = array(); 
 
 // connect to the database
-$db = mysqli_connect('185.27.134.10', 'root', '', 'epiz_22970911_xproxmess');
+$db = mysqli_connect('localhost', 'root', '', 'XPROXMESS');
 
 // REGISTER USER
 if (isset($_POST['reg_user'])) {
@@ -150,6 +150,8 @@ if(isset($_POST['apply_mess'])){
   
     $query = "INSERT INTO mess_allot(mess,roll_no,apply_date) VALUES ('$mess','$rollno','$dated')";
 
+    $query2 = "update students set mess = '$mess' where roll_no = '$rollno'";
+    mysqli_query($db,$query2);
 
     if(!mysqli_query($db,$query))
     {

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 09, 2018 at 05:35 PM
+-- Generation Time: Nov 12, 2018 at 05:07 PM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.10
 
@@ -65,18 +65,7 @@ CREATE TABLE `feedback` (
 --
 
 INSERT INTO `feedback` (`fid`, `roll_no`, `mess`, `complaint`, `sub_date`) VALUES
-(7, '16CO116', '1st Block', 'GHATIYA KHANA, RONA AATA HAI KHANA DEKH KE, BECH DO MESS AUR COLLEGE DONO', '2018-10-30'),
-(8, '16CO110', '2nd Block', 'INDRAJEET LIKES MEHAK', '2018-10-30'),
-(9, '16CO110', '2nd Block', 'djkfgkasn caksbfcma sjdcasm cjhasbfas\r\nBHAG BHAG DK BOSE DK BOSE', '2018-10-30'),
-(10, '16CO123', '1st Block', 'SAALE AHOFFHlnb ', '2018-10-30'),
-(11, '16CO110', '4th Block', 'NOT GOOD FOOD', '2018-11-06'),
-(12, 'KANEKECHI', '2nd Block', 'Indrajeet loves mehak', '2018-11-06'),
-(13, '', '2nd Block', 'sdf', '2018-11-06'),
-(14, 'opja', '1st Block', 'lkkdsnlng', '2018-11-08'),
-(15, 'lkn', '2nd Block', 'n\r\n', '2018-11-08'),
-(16, '16CO110', '1st Block', 'NOT GOOD FOOD........\r\nWORST FOOD EVER.', '2018-11-09'),
-(17, '16CO110', '2nd Block', 'lksafm\r\n', '2018-11-09'),
-(18, '16CO116', 'Mega Mess', 'I LOVE MEHAK', '2018-11-09');
+(19, '16CO110', '1st Block', 'hello', '2018-11-09');
 
 -- --------------------------------------------------------
 
@@ -96,7 +85,7 @@ CREATE TABLE `FirstBlockMenu` (
 --
 
 INSERT INTO `FirstBlockMenu` (`day`, `breakfast`, `lunch`, `dinner`) VALUES
-('MON', 'PURI BHAJI', 'CHOLE PURI', 'GOBI MANCHURIAN AND PANEER'),
+('MON', 'Egg', 'Rajma', 'Chawal'),
 ('TUE', 'PURI BHAJI', 'CHOLE PURI', 'GOBI MANCHURIAN AND PANEER'),
 ('WED', 'PURI BHAJI', 'CHOLE PURI', 'GOBI MANCHURIAN AND PANEER'),
 ('THURS', 'PURI BHAJI', 'CHOLE PURI', 'GOBI MANCHURIAN AND PANEER'),
@@ -169,6 +158,13 @@ CREATE TABLE `mess_allot` (
   `apply_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=hp8;
 
+--
+-- Dumping data for table `mess_allot`
+--
+
+INSERT INTO `mess_allot` (`mid`, `roll_no`, `mess`, `apply_date`) VALUES
+(1, '16CO110', '1st Block', '2018-11-12');
+
 -- --------------------------------------------------------
 
 --
@@ -185,9 +181,9 @@ CREATE TABLE `mess_count` (
 --
 
 INSERT INTO `mess_count` (`mess`, `left_count`) VALUES
-('1st Block', 9),
-('2nd Block', 0),
-('4th Block', 198),
+('1st Block', 8),
+('2nd Block', 98),
+('4th Block', 197),
 ('Mega Mess', 99);
 
 -- --------------------------------------------------------
@@ -211,7 +207,8 @@ CREATE TABLE `night_canteen_nonveg` (
 INSERT INTO `night_canteen_nonveg` (`Food`, `price`, `availability`, `tag`, `idd`) VALUES
 ('Chicken Kolapuri', 100, 0, 'Chicken', 1),
 ('Prawns', 200, 1, 'Fish', 2),
-('Chicken Kurma', 50, 1, 'Chicken', 3);
+('Chicken Kurma', 50, 1, 'Chicken', 3),
+('Fish Curry', 50, 1, 'Fish', 4);
 
 -- --------------------------------------------------------
 
@@ -232,7 +229,8 @@ CREATE TABLE `night_canteen_veg` (
 --
 
 INSERT INTO `night_canteen_veg` (`Food`, `price`, `availability`, `tag`, `idd`) VALUES
-('Puri Bhaji', 40, 1, 'Snacks', 2);
+('Puri Bhaji', 40, 1, 'Snacks', 2),
+('Dosa', 35, 1, 'Snacks', 5);
 
 -- --------------------------------------------------------
 
@@ -285,17 +283,20 @@ INSERT INTO `SecondBlockMenu` (`day`, `breakfast`, `lunch`, `dinner`) VALUES
 CREATE TABLE `students` (
   `roll_no` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `password` varchar(100) NOT NULL
+  `password` varchar(100) NOT NULL,
+  `mess` varchar(255) DEFAULT NULL,
+  `price` int(11) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `students`
 --
 
-INSERT INTO `students` (`roll_no`, `email`, `password`) VALUES
-('16CO108', 'ad@gmail.com', '202cb962ac59075b964b07152d234b70'),
-('16CO110', 'dv@gmail.com', '10e186315f3d0aad7dce6ee826726509'),
-('16CO116', 'indra@gmail.com', '25d55ad283aa400af464c76d713c07ad');
+INSERT INTO `students` (`roll_no`, `email`, `password`, `mess`, `price`) VALUES
+('16CO108', 'ad@gmail.com', '202cb962ac59075b964b07152d234b70', NULL, 0),
+('16CO110', 'dv@gmail.com', '10e186315f3d0aad7dce6ee826726509', '1st Block', 290),
+('16CO111', 'qw@gmail.com', '202cb962ac59075b964b07152d234b70', NULL, 0),
+('16CO116', 'indra@gmail.com', '25d55ad283aa400af464c76d713c07ad', NULL, 0);
 
 --
 -- Indexes for dumped tables
@@ -357,25 +358,25 @@ ALTER TABLE `admin_table`
 -- AUTO_INCREMENT for table `feedback`
 --
 ALTER TABLE `feedback`
-  MODIFY `fid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `fid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `mess_allot`
 --
 ALTER TABLE `mess_allot`
-  MODIFY `mid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `mid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `night_canteen_nonveg`
 --
 ALTER TABLE `night_canteen_nonveg`
-  MODIFY `idd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `night_canteen_veg`
 --
 ALTER TABLE `night_canteen_veg`
-  MODIFY `idd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
