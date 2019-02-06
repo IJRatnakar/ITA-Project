@@ -1,6 +1,3 @@
-# FDNS-Website
-Link :-
-http://failednitians.webege.com/
+WEB DEVELOPMENT ( HTML,BOOTSTRAP,CSS,PHP,MYSQL) 
 
-Link
-https://failedcoder12.github.io/FDNS-Website/
+• A website to provide easy and fast management of night canteen and mess in colleges.
